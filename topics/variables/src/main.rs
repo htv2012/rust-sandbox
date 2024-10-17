@@ -5,11 +5,12 @@ fn main() {
     // This variable is immutable (act like a const in other languages)
     // That means the following will fail:
     //     name = "John";
-    
-    let weight_pound = 150.0;
-    let weight_kg = weight_pound / 2.2;
+
+    // This variable, with `mut` is mutable
+    let mut weight = 150.0;
 
     println!("\n# Name\n{}", name);
-    println!("\n# Weight in pounds\n{}", weight_pound);
-    println!("\n# Weight in kilograms\n{}", weight_kg);
+    println!("\n# Weight in pounds\n{}", weight);
+    weight = weight / 2.2;
+    println!("\n# Weight in kilograms\n{}", weight);
 }
