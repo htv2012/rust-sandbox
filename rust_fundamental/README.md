@@ -18,3 +18,23 @@ This course is from Coursera
 * Semicolons: Terminators denoting statement boundaries, required in
   most cases except inside blocks, expressions, and macros.
 
+# How to Create a New Project
+
+```bash
+# Create a new project
+cargo new my_project
+
+# Run it
+cd my_project
+cargo run
+
+# Edit
+vim src/main.rs
+
+# Build
+cargo build
+
+# Clean
+cargo clean
+```
+
