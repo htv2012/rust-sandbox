@@ -6,24 +6,27 @@ fn main() {
         println!("Not proceeding");
     }
 
-    let height = 156;
+    let height = 136;
     let gender = "female";
-    if gender == "male" {
-
+    let judgement = if gender == "male" {
         if height > 180 {
-            println!("{}cm is considered tall for a male", height);
+            "tall"
         } else if height > 160 {
-            println!("{}cm is considered average for a male", height);
+            "average"
         } else {
-            println!("{}cm is considered short for a male", height);
+            "short"
         }
-    } else if gender=="female" {
+    } else if gender == "female" {
         if height > 155 {
-            println!("{}cm is considered tall for a female", height);
+            "tall"
         } else if height > 135 {
-            println!("{}cm is considered average for a female", height);
+            "average"
         } else {
-            println!("{}cm is considered short for a female", height);
+            "short"
         }
-    }
+    } else {
+        "unknown"
+    };
+
+    println!("{}cm is consider {} for a {}", height, judgement, gender);
 }
