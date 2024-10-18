@@ -1,27 +1,32 @@
-use std::io::{self, Write};
-
 fn main() {
-    // The `while` loop
-    let mut x = 0;
-    while x < 5 {
-        println!("x={}", x);
-        x += 1;
+    println!("\n# The while loop");
+    let mut counter = 0;
+    while counter < 3 {
+        print!("{} ", counter);
+        counter += 1;
     }
-    print!("=====================\n");
+    println!();
 
-    // The `loop` loop
-    let mut name = String::new();
+    println!("\n# The loop loop");
+    counter = 0;
     loop {
-        name.clear();
-        print!("Enter your name (q to quit): ");
-        std::io::stdout().flush().unwrap();
-        std::io::stdin().read_line(&mut name)
-            .expect("Failed to read name");
-        
-        if name.trim() == "q" {
+        print!("{} ", counter);
+        counter += 1;
+        if counter == 3 {
             break;
         }
-
-        print!("Hello, {}", name);
     }
+    println!();
+
+    println!("\n# The for loop");
+    for counter in 0..3 {
+        print!("{} ", counter);
+    }
+    println!();
+
+    println!("\n# The reverse for loop");
+    for counter in (0..3).rev() {
+        print!("{} ", counter);
+    }
+    println!();
 }
