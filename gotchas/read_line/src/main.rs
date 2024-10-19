@@ -6,9 +6,9 @@ fn main() {
 }
 
 
-/// This is the wrong way to do it read_line() keep appending to the string
+/// This is the wrong way to do it `read_line()` keep appending to the string
 /// Secondly, the string will end with a newline character which we need to
-/// call trim() to remove it
+/// call `trim()` to remove it
 
 fn wrong_way() {
 
@@ -23,7 +23,7 @@ fn wrong_way() {
     }
 }
 
-/// Right way #1: Use a fresh string every time we call read_line()
+/// Right way #1: Use a fresh string every time we call `read_line()`
 fn right_way1() {
 
     println!("\n# Right Way #1: Use a fresh string every time we call read_line()");
@@ -36,7 +36,7 @@ fn right_way1() {
     }
 }
 
-/// Right way #2: Clear the string before we call read_line()
+/// Right way #2: Clear the string before we call `read_line()`
 fn right_way2() {
 
     println!("\n# Right way #2: Clear the string before we call read_line()");
