@@ -2,15 +2,16 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 
 fn main() {
-    let file = File::open("/etc/sudoers");
+    let file_name = "data.txt";
+    let file = File::open(file_name);
     let file = match file {
         Ok(file) => file,
         Err(error) => match error.kind() {
             std::io::ErrorKind::NotFound => {
-                panic!("File not found: {}", error)
+                panic!("{}: {}", file_name, error)
             }
             _ => {
-                panic!("Error opening file: {}", error)
+                panic!("{}: {}", file_name, error)
             }
         },
     };
