@@ -3,26 +3,20 @@ use std::io::{BufRead, BufReader};
 
 fn main() {
     let file_name = "data.txt";
-    let file = File::open(file_name);
-    let file = match file {
-        Ok(file) => file,
+    match File::open(file_name) {
+        Ok(file) => {
+            let reader = BufReader::new(file);
+            for line in reader.lines() {
+                println!("{}", line.unwrap());
+            }
+        }
         Err(error) => match error.kind() {
             std::io::ErrorKind::NotFound => {
-                panic!("{}: {}", file_name, error)
+                eprintln!("{}: {}", file_name, error)
             }
             _ => {
-                panic!("{}: {}", file_name, error)
+                eprintln!("{}: {}", file_name, error)
             }
         },
     };
-
-    let reader = BufReader::new(file);
-    for line in reader.lines() {
-        match line {
-            Ok(line) => println!("{}", line),
-            Err(error) => {
-                panic!("Error reading line: {}", error)
-            }
-        }
-    }
 }
