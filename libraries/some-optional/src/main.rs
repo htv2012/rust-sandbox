@@ -1,15 +1,28 @@
 fn main() {
-    let maybe_number: Option<Option<()>> = None;
-    if let Some(number) = maybe_number {
-        println!("The number is {:?}", number);
-    } else {
-        println!("There is no number");
+    let a: i32 = 10;
+    let mut b: i32 = 0;
+
+    // Consume optional using match
+    println!("\n# {} / {}", a, b);
+    match divide(a, b) {
+        Some(number) => println!("{}", number),
+        None => println!("Divide by zero"),
     }
 
-    let maybe_number = Some(42);
-    if let Some(number) = maybe_number {
-        println!("The number is {:?}", number);
+    // Consume optional using if
+    b = 3;
+    println!("\n# {} / {}", a, b);
+    if let Some(number) = divide(a, b) {
+        println!("{}", number);
     } else {
-        println!("There is no number");
+        println!("Devide by zero");
+    }
+}
+
+fn divide(x: i32, y: i32) -> Option<i32> {
+    if y == 0 {
+        None
+    } else {
+        Some(x / y)
     }
 }
