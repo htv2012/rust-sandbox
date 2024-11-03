@@ -1,5 +1,5 @@
 list:
-	tree -d -I src
+	tree -L 3 -d -I src
 
 clean:
 	find -type d -exec test -d '{}/target' \; -print | \
