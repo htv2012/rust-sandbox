@@ -72,6 +72,31 @@
   invalidating it. This is useful when changing types locally without
   affecting other parts of the code.
 
+# Key Terms
+* **Struct**: A keyword used to organize similar data in a structure. It
+  is like an object in JavaScript or Python dictionary where you are
+  organizing data in a structured way.
+* **Field**: The values of the struct, such as first name and last name
+  string for person struct.
+* **Debug**: An attribute that allows printing the whole struct instead
+  of specific fields.
+* **Type**: The kind of value each field can hold, such as string or
+  unsigned integer 8 bits in size (u8).
+* **Instance**: A created struct with data in its fields, like Fredo
+  equals person with first name Sanchez and age H25.
+* **Option**: Represents the absence of a value or a specific type that
+  could be (for example) an unsigned integer for eight bits in size (u8)
+  or none.
+* **Implementation**: A keyword used to extend struct by adding
+  functions and associated code.
+* **Associated Function**: A function that doesn't require self,
+  allowing easy creation of a user instance with new constructor.
+* **Constructor**: Automates tedious repetitive tasks when creating
+  instances, like setting the active field to true in user struct.
+* **Immutable**: Cannot be changed after initialization, such as new
+  user being immutable by default.
+
+
 # Some helpful commands
 
 ```bash
