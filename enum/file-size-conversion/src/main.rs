@@ -23,16 +23,16 @@ impl FileSize {
         };
     }
 
-    fn to_sizes(size: FileSize) -> HashMap<String, f64> {
+    fn to_sizes(self: &FileSize) -> HashMap<String, f64> {
         let mut sizes: HashMap<String, f64> = HashMap::new();
-        let size_bytes = match size {
-            FileSize::B(value) => value,
-            FileSize::KB(value) => value * 1024.0,
-            FileSize::MB(value) => value * 1024.0 * 1024.0,
-            FileSize::GB(value) => value * 1024.0 * 1024.0 * 1024.0,
+        let size_bytes = match self {
+            FileSize::B(value) => &value,
+            FileSize::KB(value) => &(value * 1024.0),
+            FileSize::MB(value) => &(value * 1024.0 * 1024.0),
+            FileSize::GB(value) => &(value * 1024.0 * 1024.0 * 1024.0),
         };
 
-        sizes.insert(String::from("bytes"), size_bytes);
+        sizes.insert(String::from("bytes"), *size_bytes);
         sizes.insert(String::from("kilobytes"), size_bytes / 1024.0);
         sizes.insert(String::from("megabytes"), size_bytes / 1024.0 / 1024.0);
         sizes.insert(
@@ -59,7 +59,7 @@ fn main() {
             let file_size = FileSize::new(amount, unit);
 
             // Convert to other sizes
-            let sizes = FileSize::to_sizes(file_size);
+            let sizes = file_size.to_sizes();
             for (unit2, amount2) in sizes {
                 println!("{:14.2} {}", amount2, unit2);
             }
