@@ -14,6 +14,10 @@ fn main() {
     let words = sentence.split(' ').collect::<Vec<&str>>();
     println!("{:?}", words);
 
+    println!("\n# Split words, using split_whitespace()");
+    let words: Vec<&str> = sentence.split_whitespace().collect();
+    println!("{:?}", words);
+
     println!("\n# Reverse string");
     let reversed: String = sentence.chars().rev().collect::<String>();
     println!("{}", reversed);
