@@ -19,6 +19,10 @@ impl User {
         self.active = false;
     }
 
+    fn activate(&mut self) {
+        self.active = true;
+    }
+
     fn print(&self) {
         println!("User Name: {}", self.username);
         println!("Email: {}", self.email);
@@ -38,5 +42,13 @@ fn main() {
 
     println!("\n# Deactivate");
     user.deactivate();
+    user.print();
+
+    println!("\n# Activate");
+    user.activate();
+    user.print();
+
+    println!("\n# Deactivate manually");
+    user.active = false;
     user.print();
 }
