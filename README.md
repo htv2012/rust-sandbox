@@ -96,6 +96,18 @@
 * **Immutable**: Cannot be changed after initialization, such as new
   user being immutable by default.
 
+# Key Terms
+* **String**: A sequence of characters, typically used to represent text. In Rust, there are two primary types of strings: string slices (&str) and strings (String).
+* **String slice**: A reference to a sequence of characters in memory. It is immutable and has a fixed size. Represented as &str.
+* **String (this is not repeated!)**: A growable, owned sequence of characters. It is mutable and its size can change during runtime. Represented as String.
+* **Vector**: A collection of items that can be of any type. It is similar to arrays or lists in other languages. In Rust, vectors are represented as Vec<T>, where T is the type of elements contained within the vector.
+* **Immutable**: A value that cannot be changed after it has been created. Strings slices and vectors can be immutable.
+* **Mutable** - A value that can be changed after it has been created. Only strings and mutable vectors can be mutable.
+* **Borrowing**: The process of temporarily accessing a resource without taking ownership. In Rust, borrowing is used to allow multiple references to the same data without violating memory safety rules.
+* **Ownership**: The concept that a value can only have one owner at a time in Rust. When a value is transferred or dropped, its previous owner loses access to it.
+* **Slice**: A view into a contiguous sequence of elements, such as an array, string, or vector. It has a fixed size and does not own the data it points to. Represented as [T].
+* **Borrowing and Lifetimes**: Borrowing is a mechanism in Rust that allows multiple references to the same data without violating memory safety rules. Lifetimes ensure that borrowed references remain valid for as long as they are needed, preventing dangling pointers or use-after-free errors.
+* **Mutable References**: A mutable reference is a reference to a value that can be changed during its lifetime. In Rust, only one mutable reference can exist at any given time for a particular piece of data, ensuring memory safety and preventing race conditions.
 
 # Some helpful commands
 
