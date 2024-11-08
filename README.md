@@ -1,9 +1,9 @@
 
 # Key Terms
 
-* **Binary application/package**: Executables generated from Rust source
+* ******Binary application/package**: Executables generated from Rust source
   files, typically containing a main function.
-* **Library**: A collection of Rust modules providing functionality meant to
+* ******Library**: A collection of Rust modules providing functionality meant to
   be shared among multiple projects.
 * **Cargo.toml**: A configuration file read by Cargo, listing metadata
   (e.g., name, version) and dependencies required by the package.
@@ -108,6 +108,64 @@
 * **Slice**: A view into a contiguous sequence of elements, such as an array, string, or vector. It has a fixed size and does not own the data it points to. Represented as [T].
 * **Borrowing and Lifetimes**: Borrowing is a mechanism in Rust that allows multiple references to the same data without violating memory safety rules. Lifetimes ensure that borrowed references remain valid for as long as they are needed, preventing dangling pointers or use-after-free errors.
 * **Mutable References**: A mutable reference is a reference to a value that can be changed during its lifetime. In Rust, only one mutable reference can exist at any given time for a particular piece of data, ensuring memory safety and preventing race conditions.
+
+# Keywords
+* **Enum**: An enum, short for enumerator, is a data type in Rust that
+  allows you to define a set of possible values. It's used to create
+  custom types that represent distinct variants or cases. Enums are
+  powerful because they enable you to encapsulate related values and
+  provide exhaustive matching capabilities through the match keyword.
+* **Variant**: A variant is a specific case within an enum. Each enum can
+  have multiple variants, which may optionally contain associated data.
+  For example, in the text provided, there are enums like Shape, with
+  two variants: Circle and Square. The Circle variant has an associated
+  radius value, while the Square variant does not carry any additional
+  data.
+* **Match** keyword: The match keyword is a powerful control flow construct
+  that enables exhaustive pattern matching against enums or other
+  values. It checks each case to find the first match, making it an
+  excellent way to handle different enum variants in Rust. The text
+  demonstrates using match with enums like Shape, WineRegion, and more.
+* **Option**: The Option type is a built-in enum provided by Rust that
+  represents either the presence or absence of a value, denoted as
+  Some(value) or None. It's often used to handle nullable values in
+  other languages. The text explores using Option, including its
+  unwrapping methods like unwrap().
+* **Sum** type: A sum type is an enumeration that can hold a variant with
+  associated data of some type D, allowing you to create instances
+  containing different types or combinations of data. In Rust, enums are
+  examples of sum types because they let you define multiple variants,
+  each potentially carrying distinct information. The text demonstrates
+  this concept through the Shape enum and its associated data (radius
+  for circles and side length for squares).
+* **Associated** functions/methods: In Rust, it's possible to extend enums
+  with implementation blocks that contain associated functions or
+  methods, just like structs. This enables you to add functionality
+  specific to the enum type directly within the enum definition. The
+  text showcases this by implementing a format_size() method for the
+  FileSize enum.
+* **Vectors**: A vector is a growable array-like data structure in Rust that
+  can hold multiple values of the same type. In the context of enums,
+  vectors are useful when you want to store and manipulate collections
+  of related enum instances or variants. The text demonstrates using
+  vectors with enums by defining a Shapes vector containing different
+  shapes (circles and squares).
+* **Exhaustive** matches: Exhaustive matching is the practice of handling
+  all possible cases when working with enums, ensuring that every
+  variant has been accounted for in your code. Rust's type system helps
+  enforce exhaustiveness by requiring you to handle each enum variant or
+  use a catch-all pattern (_) if needed. The text highlights this
+  concept through examples like the taste() function dealing with wine
+  grape variants.
+* **Non**-exhaustive patterns: When working with enums, non-exhaustive
+  patterns refer to cases where not all possible enum variants are
+  explicitly handled in a match statement or conditional expression.
+  Rust's compiler will warn you about missing arms (unhandled variants)
+  unless you use the catch-all pattern _ or explicitly mark your enum as
+  non-exhaustive using the ... syntax. The text demonstrates this
+  concept through examples like the wine grape enumerator and its
+  associated functions.
+
 
 # Some helpful commands
 
