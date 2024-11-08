@@ -157,7 +157,7 @@
   use a catch-all pattern (_) if needed. The text highlights this
   concept through examples like the taste() function dealing with wine
   grape variants.
-* **Non**-exhaustive patterns: When working with enums, non-exhaustive
+* **Non-exhaustive patterns**: When working with enums, non-exhaustive
   patterns refer to cases where not all possible enum variants are
   explicitly handled in a match statement or conditional expression.
   Rust's compiler will warn you about missing arms (unhandled variants)
