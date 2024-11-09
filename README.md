@@ -1,9 +1,9 @@
 
 # Key Terms
 
-* ****Binary application/package**: Executables generated from Rust source
+* **Binary application/package**: Executables generated from Rust source
   files, typically containing a main function.
-* ****Library**: A collection of Rust modules providing functionality meant to
+* **Library**: A collection of Rust modules providing functionality meant to
   be shared among multiple projects.
 * **Cargo.toml**: A configuration file read by Cargo, listing metadata
   (e.g., name, version) and dependencies required by the package.
