@@ -1,22 +1,28 @@
 fn main() {
-    println!("\n# Create a vector");
-    let mut vector = vec![1, 2, 3, 4, 5];
-    println!("{:?}", vector);
+    let vector: Vec<i8> = vec![1, 2, 3];
+    get_index(&vector);
 
-    let index: usize = 2;
-    println!("\n# Get index {}", index);
-    let value = vector.get(index).unwrap();
-    println!("{}", value);
+    let vector: Vec<i8> = vec![];
+    get_index(&vector);
 
-    println!("\n# Get last value");
-    let last = vector.last().unwrap();
-    println!("{}", last);
+    let vector: Vec<i8> = vec![9];
+    get_index(&vector);
+}
 
-    println!("\n# Get last value from an empty vector");
-    vector.clear();
-    if let Some(value) = vector.last() {
-        eprintln!("Impossible! Get last value returns {}", value);
-    } else {
-        println!("Vector is empty");
-    }
+fn get_index(vector: &Vec<i8>) {
+    println!("\n# vector={:?}", vector);
+    match vector.get(2) {
+        Some(value) => println!("vector.get(2) -> {}", value),
+        None => println!("vector.get(2) -> None"),
+    };
+
+    match vector.first() {
+        Some(value) => println!("vector.first() -> {}", value),
+        None => println!("vector.first() -> None"),
+    };
+
+    match vector.last() {
+        Some(value) => println!("vector.last() -> {}", value),
+        None => println!("vector.last() -> None"),
+    };
 }
