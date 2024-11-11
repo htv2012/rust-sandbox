@@ -1,8 +1,9 @@
-use clap::{arg, command, value_parser, ArgAction, Command};
-use std::path::PathBuf;
+use clap::{command, Arg, Command};
+//use std::path::PathBuf;
 
 fn main() {
     let matches = command!()
+        /*
         .arg(arg!([name] "Optional name"))
         .arg(
             arg!(-c --config <FILE> "Set custom config file")
@@ -10,18 +11,32 @@ fn main() {
                 .value_parser(value_parser!(PathBuf)),
         )
         .arg(arg!(-d --debug ... "Turn on debugging"))
+        */
+        .subcommand(Command::new("list").about("List tasks"))
         .subcommand(
-            Command::new("test")
-                .about("Perform test")
-                .arg(arg!(-l --list "List test values").action(ArgAction::SetTrue)),
+            Command::new("add")
+                .about("Add a task")
+                .arg(Arg::new("task")),
+        )
+        .subcommand(
+            Command::new("rm")
+                .about("Remove a task")
+                .arg(Arg::new("task_id")),
         )
         .get_matches();
-
-    if let Some(name) = matches.get_one::<String>("name") {
-        println!("name={}", name);
-    }
-
-    if let Some(config_path) = matches.get_one::<PathBuf>("config") {
-        println!("config_path={}", config_path.display());
+    println!("{:?}", matches);
+    match matches.subcommand() {
+        Some(("list", _)) => {
+            println!("List items");
+        }
+        Some(("add", sub_matches)) => {
+            println!("Add");
+        }
+        Some(("rm", _)) => {
+            println!("Remove");
+        }
+        _ => {
+            println!("ERROR")
+        }
     }
 }
