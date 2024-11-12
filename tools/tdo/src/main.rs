@@ -1,4 +1,4 @@
-use clap::{command, Arg, Command};
+use clap::{arg, command, Command};
 //use std::path::PathBuf;
 
 fn main() {
@@ -13,15 +13,11 @@ fn main() {
         .arg(arg!(-d --debug ... "Turn on debugging"))
         */
         .subcommand(Command::new("list").about("List tasks"))
-        .subcommand(
-            Command::new("add")
-                .about("Add a task")
-                .arg(Arg::new("task")),
-        )
+        .subcommand(Command::new("add").about("Add a task").arg(arg!([TASK])))
         .subcommand(
             Command::new("rm")
                 .about("Remove a task")
-                .arg(Arg::new("task_id")),
+                .arg(arg!([TASK_ID])),
         )
         .get_matches();
     println!("{:?}", matches);
@@ -30,7 +26,8 @@ fn main() {
             println!("List items");
         }
         Some(("add", sub_matches)) => {
-            println!("Add");
+            let task = sub_matches.get_one::<String>("TASK").unwrap();
+            println!("Add >{}<", task);
         }
         Some(("rm", _)) => {
             println!("Remove");
