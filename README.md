@@ -166,6 +166,28 @@
   concept through examples like the wine grape enumerator and its
   associated functions.
 
+# Key Terms
+* **CLI tool**: Command Line Interface tool is a type of software that
+  can be used at the command line of an operating system.
+* **Makefile**: A makefile contains targets to compile your code into
+  executable binaries or libraries. It also includes rules for managing
+  dependencies between files and creating distribution packages.
+* **debugger**: Debugging tools help developers identify issues in their
+  programs by stepping through the code, line by line, while monitoring
+  variable values and other aspects of program execution.
+* **library**: A collection of reusable functions, structures, macros,
+  traits, and types. Libraries are distributed as binary crates or
+  source code packages on crates.io.
+* **Cargo.toml**: The configuration file for Cargo that contains
+  metadata about your project such as its name, version, authors,
+  dependencies, and links to documentation.
+* **buffered reader**: A buffered reader is a type of input stream in
+  Rust which reads data from a source (like stdin) into an internal
+  buffer before providing it to the application for processing. This can
+  improve performance by reducing the number of system calls required
+  for reading small chunks of data.
+* **std**::io::Stdin: The standard input handle, allowing you to read
+  from user input or pipes in Rust programs.
 
 # Some helpful commands
 
