@@ -1,20 +1,17 @@
-use std::env;
-use std::fs::File;
-use std::io::{BufRead, BufReader};
+//! Demo
+//! - Use std::fs::read_to_string to simplify reading from file
+//! - Error handling
+
+use std::fs::read_to_string;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
-    let file_name = &args[1];
-
-    match File::open(file_name) {
-        Ok(file) => {
-            let mut line_number = 1;
-            let reader = BufReader::new(file);
-            for line in reader.lines() {
-                println!("{:4}: {}", line_number, line.unwrap());
-                line_number += 1;
-            }
+    let file_names = vec!["src/main.rs", "/tmp/noread.txt"];
+    for file_name in file_names {
+        println!("\n# cat {}", file_name);
+        match read_to_string(file_name) {
+            Ok(content) => println!("{}", content),
+            Err(error) => eprintln!("{}: {}", file_name, error),
         }
-        Err(error) => eprintln!("{}: {}", error, file_name)
     }
 }
+
