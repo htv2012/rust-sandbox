@@ -57,3 +57,40 @@ pub fn bold(s: &str) -> String {
 pub fn reset(s: &str) -> String {
     format!("\x1b[0m{}\x1b[0m", s)
 }
+
+/// Represents different colors
+pub enum Color {
+    Red,
+    Green,
+    Blue,Bold,
+}
+
+/// Represent a string with embedded ANSI color code
+pub struct ColorString {
+    /// The color, see [Color]
+    pub color: Color,
+
+    /// The text itself
+    pub string: String,
+
+    /// The colorized text
+    pub colorized: String,
+}
+
+impl ColorString {
+    /// Create colorized version of the text base on `color` and `string`
+    pub fn paint(&mut self) {
+        match self.color {
+            Color::Red => self.colorized = red(&self.string),
+            Color::Green => self.colorized = green(&self.string),
+            Color::Blue => self.colorized = blue(&self.string),
+            Color::Bold => self.colorized = bold(&self.string),
+        };
+    }
+
+    /// Reset the color to normal
+    pub fn reset(&mut self) {
+        self.colorized = reset(&self.string);
+    }
+}
+
