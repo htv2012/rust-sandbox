@@ -3,8 +3,8 @@
 
 use std::io::{BufRead, BufReader};
 
-pub mod config;
-pub mod color;
+//pub mod config;
+//pub mod color;
 
 /// This function reads a line from stdin and return a String
 /// It will panic upon failure
@@ -13,7 +13,7 @@ pub mod color;
 ///
 /// ```
 /// use cli_utils::read_stdin;
-/// let text = read_stdin()
+/// let text = read_stdin();
 /// ```
 pub fn read_stdin() -> String {
     let stdin = std::io::stdin();
