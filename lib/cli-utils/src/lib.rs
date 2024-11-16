@@ -1,6 +1,7 @@
 //! Command Line Iterface (CLI) Utilities
 
 use std::io::{BufRead, BufReader};
+pub mod colors;
 
 /// This function reads a line from stdin and return a String
 /// It will panic upon failure
