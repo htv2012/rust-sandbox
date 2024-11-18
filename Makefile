@@ -28,6 +28,10 @@ editl:
 format:
 	cargo fmt --all
 
+### List project's files, excluding the target dir
+list:
+	tree -I target
+
 ### Run main.rs
 run:
 	cargo run -q --
