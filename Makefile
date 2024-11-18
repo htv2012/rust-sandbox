@@ -13,11 +13,8 @@ clean:
 		(cd "$$dir" && echo "Clean: $$dir" ; cargo clean); \
 	done
 
-### Format, edit, and run main.rs
-dev:
-	$(MAKE) -s -f $(MAKEFILE_LIST) format
-	$(MAKE) -s -f $(MAKEFILE_LIST) edit
-	$(MAKE) -s -f $(MAKEFILE_LIST) run
+### Development cycle
+dev: format edit run
 
 ### Edit main.rs
 edit:
@@ -31,10 +28,6 @@ editl:
 format:
 	cargo fmt --all
 
-### List the projects
-list:
-	tree -L 3 -d -I src
-
 ### Run main.rs
 run:
 	cargo run -q --
@@ -43,4 +36,8 @@ run:
 test:
 	cargo test
 
-.PHONY: clean dev edit editl format help list run test
+### List the projects
+tree:
+	tree -L 3 -d -I src $(HOME)/Projects/rust-sandbox | less -R
+
+.PHONY: clean dev edit editl format help run test tree
