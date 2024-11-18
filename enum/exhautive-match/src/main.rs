@@ -14,9 +14,7 @@ fn main() {
 
 fn taste_wine(grape: WineGrapes) {
     let name: &str = match grape {
-        // Try to omit one or two of these lines, or try todo!()
         WineGrapes::CabernetFrance => "Cabernet France",
-        //WineGrapes::Tannat => todo!(),
         WineGrapes::Tannat => "Tannat",
         WineGrapes::Merlot => "Merlot",
     };
