@@ -42,4 +42,13 @@ mod tests {
         let actual = _read_stdin(&mut reader);
         assert_eq!(actual, expected);
     }
+
+    #[test]
+    fn test_read_empty_input() {
+        let input = "";
+        let expected = "";
+        let mut reader = Cursor::new(input);
+        let actual = _read_stdin(&mut reader);
+        assert_eq!(actual, expected);
+    }
 }
