@@ -42,7 +42,7 @@ pub fn blue(s: &str) -> String {
 /// println!("{}", bold("this text is in bold"));
 ///
 /// // Combine with other colors
-/// println!("{}", bold(red("Error: Out of coffee")));
+/// println!("{}", bold(&red("Error: Out of coffee")));
 /// ```
 pub fn bold(s: &str) -> String {
     format!("\x1b[1m{}\x1b[0m", s)
@@ -62,7 +62,8 @@ pub fn reset(s: &str) -> String {
 pub enum Color {
     Red,
     Green,
-    Blue,Bold,
+    Blue,
+    Bold,
 }
 
 /// Represent a string with embedded ANSI color code
@@ -93,4 +94,3 @@ impl ColorString {
         self.colorized = reset(&self.string);
     }
 }
-
