@@ -1,20 +1,15 @@
 // Demo: Shadowing: Reassign variables type and values
 fn main() {
-    // Original
     let x = 43;
-    println!("\n# Original declaration, as int");
-    println!("x={}", x);
+    println!("# Original declaration, as int, x={}", x);
 
     let x = "forty three";
-    println!("\n# Shadowing: redefine type and value to string");
-    println!("x={}", x);
+    println!("# Shadowing: re-define type and value to string, x={}", x);
 
     {
-        println!("\n# Inner scope, dedefine as float");
         let x = 43.3;
-        println!("x={}", x);
+        println!("# Inner scope, re-define as float, x={}", x);
     }
 
-    println!("\n# Exit inner scope");
-    println!("x={}", x);
+    println!("# Exit inner scope, x={}", x);
 }
