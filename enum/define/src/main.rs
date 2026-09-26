@@ -14,24 +14,27 @@ enum DiskSize {
 
 fn main() {
     println!("\n# Define disk type");
-    let disk_type = DiskType::SSD;
+    let disk_types = [DiskType::SSD, DiskType::HDD];
+    for disk_type in disk_types {
+        // with partial equal, we can use ==
+        if disk_type == DiskType::SSD {
+            println!("- SSD");
+        } else {
+            println!("- HDD");
+        }
 
-    // The following needed for partial equal
-    if disk_type == DiskType::SSD {
-        println!("SSD");
-    } else {
-        println!("HDD");
-    }
-
-    // Without partial equal, we will have to do this:
-    match disk_type {
-        DiskType::SSD => println!("SSD"),
-        DiskType::HDD => println!("HDD"),
+        /* Without partial equal, we will have to do this:
+        match disk_type {
+            DiskType::SSD => println!("- SSD"),
+            DiskType::HDD => println!("- HDD"),
+        }
+        */
     }
 
     println!("\n# DiskSize Enum");
     let sizes = [DiskSize::KB(128), DiskSize::MB(4), DiskSize::GB(32)];
     for size in sizes {
+        print!("- ");
         print_disk_size(&size);
     }
 }
